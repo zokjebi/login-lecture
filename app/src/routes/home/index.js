@@ -13,15 +13,8 @@ router.get("/", (req, res) => {
 });
 */
 
-router.get("/", ctrl.hello);
-
-/*
-router.get("/login", (req, res) => {
-    //res.send("여기는 로그인 화면입니다.");
-    res.render("home/login");
-});
-*/
-
-router.get("/login", ctrl.login);
+router.get("/", ctrl.output.home);
+router.get("/login", ctrl.output.login);
+router.post("/login", ctrl.process.login);
 
 module.exports = router;
