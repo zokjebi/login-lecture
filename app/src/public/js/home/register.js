@@ -7,26 +7,31 @@ console.log("bye");
 */
 
 const id = document.querySelector("#id"),
+      name = document.querySelector("#name"),
       password = document.querySelector("#password"),
-      loginBtn = document.querySelector("#button");
+      confirmPassword = document.querySelector("#confirm-password"),
+      registerBtn = document.querySelector("#button");
 
 /*
 console.log(id);
 console.log("hello");      
 */
 
-loginBtn.addEventListener("click", login);
+console.log("hello register");      
 
-function login() {
+registerBtn.addEventListener("click", register);
+
+function register() {
     const req = {
         id: id.value,
+        name: name.value,
         password: password.value,
+        confirmPassword: confirmPassword.value,
     };
 
     console.log(req);
-    console.log(JSON.stringify(req));
 
-    fetch("/login", {
+    fetch("/register", {
         method: "POST",
         headers: {
             "Content-Type" : "application/json",
@@ -37,7 +42,7 @@ function login() {
       .then((res) => {
           
           if (res.success) {
-              location.href = "/";
+              location.href = "/login";
           } else {
               alert(res.msg);
           }
@@ -45,7 +50,7 @@ function login() {
       })
       .catch((err) => {
         //console.error(new Error("로그인 중 에러 발생"));
-        console.error("로그인 중 에러 발생");
+        console.error("회원가입 중 에러 발생");
       });
-
+      
 }
