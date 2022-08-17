@@ -23,7 +23,7 @@ function login() {
         password: password.value,
     };
 
-    console.log(req);
+    //console.log(req);
     console.log(JSON.stringify(req));
 
     fetch("/login", {
